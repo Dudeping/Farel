@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="FAR.EL.Service.UserService" CodeBehind="UserService.svc.cs" %>

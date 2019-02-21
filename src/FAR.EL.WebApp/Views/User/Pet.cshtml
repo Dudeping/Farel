@@ -1,0 +1,69 @@
+﻿@model GetPeModel
+@{
+    ViewBag.Title = "体检";
+}
+
+@section CssJs{
+    <link href="~/Content/common.css" rel="stylesheet" />
+}
+
+<div class="content">
+    <div id="box">
+    </div>
+    <div>
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-info" style="margin-top:7em;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">体检单</h3>
+                </div>
+                <div class="panel-body">
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th>描述</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">姓名</th>
+                                <td>@Model.UName</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">性别</th>
+                                <td>@(Model.Sex == "1" ? "男" : "女")</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">年龄</th>
+                                <td>@Model.Age</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">医生</th>
+                                <td>@Model.DName</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">体检体温</th>
+                                <td>
+                                    @(Model.IsCheckTmp ? "是" : "否")
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">体检心率</th>
+                                <td>
+                                    @(Model.IsCheckHtBt ? "是" : "否")
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@ViewBag.PId" />
+                        <button type="submit" class="btn btn-lg btn-info btn-block">体检</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

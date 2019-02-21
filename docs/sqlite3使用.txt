@@ -1,0 +1,125 @@
+【1】 sqlite3的安装：
+1.离线安装：sudo dpkg -i *.deb
+2.在线安装：sudo apt-get install sqlite3
+
+【2】 sqlite3的基本命令：
+1.系统命令：
+	以‘.’（点）开头的命令
+	.help	帮助
+	.quit	退出
+	.exit	退出
+	.schema	查看表的结构图
+	.databases	查看打开的数据库
+	.table	查看表
+
+2.sql命令：
+	不以‘.’（点）开头，但是需要以‘；’（分号）结尾；
+	1）创建一张数据的表
+	create table student(no Integer，name char，score float);
+	数据类型：
+		Integer 整型
+		char 字符串，也可以用string
+		...
+	2）插入一条数据：
+	完整数据插入：
+		insert into student values(1, ‘zhangsan', 80);
+	注意：字符串zhangsan既可以用单引号‘zhangsan’，也可以用双引号“zhangsan”；
+	部分数据插入：
+		insert into student （no，name） values(2, 'lisi');
+	3）查询记录
+	完整数据查询：
+		select * from student；
+	部分数据查询：
+		select no，name from student；
+	按照条件查询：
+		select * from student where score=100；
+		select * from student where no=1 and score=100；
+		select * from student where no=1 or score=100；
+	4）删除记录：
+	删除某一条记录：
+		delete from student where name='lisi';
+	删除整张表数据：	
+		delete from student;
+	5）更新记录：
+	update student set name=‘lisi’ where id=3；
+	update student set name='lisi',score=80 where id=2;
+	6）在表中增加一列
+		alter table student add column address char
+	7）在表中删除一列：
+		不支持直接删一列：
+		1）创建一个新的表并从原有表中提取字段；
+			create table stu as select id, name, score from student;
+
+		2）删除原有的表格；
+			drop table student;
+		3）将新的表格名字改为原有表的名字
+			alter table stu rename to student;
+
+【3】 sqlite3函数接口：
+
+int sqlite3_open(
+  const char *filename,   /* Database filename (UTF-8) 要操作的数据库文件的路径；*、
+  sqlite3 **ppDb          /* OUT: SQLite db handle */
+);
+功能：打开一个数据库；
+参数：
+	filename：	代表数据库的路径名；
+	ppdb：		代表数据库的操作句柄（指针）；
+返回值：成功-SQLITE_OK，出错-错误码；	
+
+int sqlite3_close(sqlite3*);
+功能：关闭数据库
+参数：
+	db	：操作数据库的句柄；
+返回值：成功-SQLITE_OK，出错-错误码；
+
+const char *sqlite3_errmsg(sqlite3*);
+功能：通过db句柄，得到数据库操作的错误信息；
+返回值：错误信息的首地址；
+/********************************************************
+int sqlite3_exec(
+  sqlite3*,                                  /* An open database */
+  const char *sql,                           /* SQL to be evaluated */
+  int (*callback)(void*,int,char**,char**),  /* Callback function */
+  void *,                                    /* 1st argument to callback */
+  char **errmsg                              /* Error msg written here */
+);
+功能：执行一条sql语句；
+参数：
+	db	：数据库操作句柄；
+	sql	：一条sql语句；
+	callback：只有sql为查询语句的时候，才会执行此语句；
+	arg	：给回调函数callback传递参数；
+	errmsg	：错误消息
+返回值：成功-SQLITE_OK，出错-错误码；
+
+int (*callback)(void *arg, int, char **, char **);	/* Callback function */
+功能：查询的结果，是一个函数指针类型，传递一个函数名即可。
+参数：
+	para	：传递给回调函数的参数；
+	f_num	：记录中包含的字段数目；
+	f_value	：包含每个字段值的指针数组；
+	f_name	：包含每个字段名称的指针数组
+返回值：成功返回0，失败返回-1；	
+***********************************************************/
+
+查询数据：
+int sqlite3_get_table(
+  sqlite3 *db,          /* An open database */
+  const char *zSql,     /* SQL to be evaluated */
+  char ***pazResult,    /* Results of the query */
+  int *pnRow,           /* Number of result rows written here */
+  int *pnColumn,        /* Number of result columns written here */
+  char **pzErrmsg       /* Error msg written here */
+);
+功能，查询表中数据
+参数：
+	db	：数据库操作句柄
+	zSql	：查询的sql语句
+	pazResult	：查询结果的返回地址；
+	pnRow	：满足条件的记录数目（表中的行数）
+	pnColumn：每条记录包含的字段数目（表中的列数）
+	pzErrmsg：错误信息指针的地址；
+返回值：成功返回0，失败返回错误码。
+
+void sqlite3_free_table(char **result);

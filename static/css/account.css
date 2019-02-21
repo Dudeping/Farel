@@ -1,0 +1,13 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+#box {
+    background-image: url(../image/account_bk.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    opacity: 0.9;
+}

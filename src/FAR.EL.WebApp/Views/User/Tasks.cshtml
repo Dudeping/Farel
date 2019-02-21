@@ -1,0 +1,60 @@
+﻿@model IEnumerable<LogAndTaskModel>
+
+@{
+    ViewBag.Title = "体检任务";
+}
+
+@section CssJs{
+    <link href="~/Content/common.css" rel="stylesheet" />
+    <link href="~/Content/logs.css" rel="stylesheet" />
+}
+
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            任务列表
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>用户姓名</th>
+                        <th>是否体检体温</th>
+                        <th>是否体检心率</th>
+                        <th>是否完成</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int color = 0;}
+                    @foreach (var item in Model)
+                    {
+                        <tr class="@Html.GetTableCss(color++)">
+                            <th scope="row">@item.Id</th>
+                            <td>@item.Name</td>
+                            <td>@(item.IsCheckTmp ? "是" : "否")</td>
+                            <td>@(item.IsCheckHtBt ? "是" : "否")</td>
+                            <td>
+                                @if (item.IsFilsh)
+                                {
+                                    <a title="点击查看报告" href="@Url.Action("ShowRep", "User", new { id = item.Id})">已完成</a>
+                                }
+                                else
+                                {
+                                    <a title="点击进行体检" href="@Url.Action("Pet", "User", new { id = item.Id})">未完成</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                    @if (Model.Count() <= 0)
+                    {
+                        <tr class="text-center">
+                            <td colspan="5" class="text-danger">暂无体检任务!</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

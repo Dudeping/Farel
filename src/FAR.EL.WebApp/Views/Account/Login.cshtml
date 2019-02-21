@@ -1,0 +1,49 @@
+﻿@model LoginModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+    ViewBag.Title = "登录";
+}
+
+<div class="col-md-4 col-md-offset-4">
+    <div class="panel panel-info" style="margin-top:9em;">
+        <div class="panel-heading">
+            <h3 class="panel-title">@ViewBag.Title</h3>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    <label for="account">用户名</label>
+                    @Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "form-control", placeholder = "请输入用户名" } })
+                    @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "请输入密码" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label>登录类型</label><br />
+                    <select name="Type" class="form-control">
+                        <option value="User">体检者</option>
+                        <option value="Dr">医生</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-lg btn-info btn-block">登录</button>
+
+                <p class="text-muted text-center" style="margin-top:0.8em;">
+                    <a href="@Url.Action("Register", "Account")">注册一个新账号</a>
+                </p>
+            }
+        </div>
+    </div>
+</div>
+
+@section LoadJs{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+}

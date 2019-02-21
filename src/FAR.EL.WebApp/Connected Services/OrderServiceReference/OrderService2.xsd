@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/FAR.EL.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FAR.EL.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="OrderModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsChckeHtBt" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsChckeTmp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderModel" nillable="true" type="tns:OrderModel" />
+  <xs:complexType name="ArrayOfLogAndTaskModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LogAndTaskModel" nillable="true" type="tns:LogAndTaskModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLogAndTaskModel" nillable="true" type="tns:ArrayOfLogAndTaskModel" />
+  <xs:complexType name="LogAndTaskModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCheckHtBt" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCheckTmp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFilsh" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogAndTaskModel" nillable="true" type="tns:LogAndTaskModel" />
+  <xs:complexType name="GetRepModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Age" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HtBt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tmp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetRepModel" nillable="true" type="tns:GetRepModel" />
+  <xs:complexType name="GetPeModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Age" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCheckHtBt" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCheckTmp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetPeModel" nillable="true" type="tns:GetPeModel" />
+</xs:schema>

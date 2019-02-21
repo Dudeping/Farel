@@ -1,0 +1,60 @@
+﻿@model RegisterModel
+@{
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+    ViewBag.Title = "注册";
+}
+
+<div class="col-md-4 col-md-offset-4">
+    <div class="panel panel-info" style="margin-top:5em;">
+        <div class="panel-heading">
+            <h3 class="panel-title">@ViewBag.Title</h3>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    <label for="account" maxlength="20">用户名</label>
+                    @Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "form-control", placeholder = "用户名用作登录使用" } })
+                    @Html.ValidationMessageFor(mode => mode.Account, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "请输入密码" } })
+                    @Html.ValidationMessageFor(mode => mode.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "请输入您的姓名" } })
+                    @Html.ValidationMessageFor(mode => mode.Name, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="age">年龄</label>
+                    @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control", placeholder = "请输入您的年龄" } })
+                    @Html.ValidationMessageFor(mode => mode.Age, "", new { @class = "text-danger" })
+                </div>
+                <div class="radio">
+                    <label style="margin-left: 140px;">
+                        <input type="radio" checked value="true" name="Sex">男
+                    </label>
+                    <label style="margin-left: 35px;margin-right: -100px;">
+                        <input type="radio" value="false" name="Sex">女
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-lg btn-info btn-block">注册</button>
+
+                <p class="text-muted text-center" style="margin-top:0.8em;">
+                    <a href="@Url.Action("Login","Account")">已有账号，去登录</a>
+                </p>
+            }
+        </div>
+    </div>
+</div>
+
+@section LoadJs{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+}

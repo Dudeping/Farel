@@ -1,0 +1,70 @@
+文件：	
+1. 创建文件；
+
+       #include <sys/types.h>
+       #include <sys/stat.h>
+       #include <fcntl.h>
+       int creat(const char *pathname, mode_t mode);
+功能： 创建一个普通文件；
+参数：	
+	pathname： 所创建文件的路径（相对路径、绝对路径）
+	mode：文件的权限，读、写、执行==> 000 - 111  ===> 0 - 7;
+	用户本身、所属组、其它用；	0777
+返回值：成功返回文件描述符（内核提供给应用程序的），非负整数 ，>= 0；	
+
+
+2. 打开文件；
+
+       int open(const char *pathname, int flags);
+功能：打开文件，
+参数：	
+	pathname： 打开文件的路径
+	flag：	打开文件的方式，
+		O_RDONLY：只读,
+		O_WRONLY：只写,  
+		O_RDWR：可读可写
+	
+
+
+       int open(const char *pathname, int flags, mode_t mode);
+功能：
+	创建或者打开文件；
+参数：
+	pathname： 创建或者打开文件的路径；
+	flags：	打开文件的方式：
+		O_RDONLY：只读,
+		O_WRONLY：只写,  
+		O_RDWR：可读可写
+
+		O_CREAT：创建文件（文件不存在在，则创建文件，如果文件存在，直接打开）；
+			O_EXCL：如果创建的文件存在的话，报错；
+			O_APPEND：如果创建的文件存在的话，则以追加的打开
+			O_TRUNC：如果创建的文件存在的话，则将原有的数据给清除；
+
+		O_NOCTTY： 打开的是设备文件的时候，并且可以作为终端文件的时候，把他当做普通文件打开；
+	
+	mode：
+		文件的权限；
+
+返回值：	成功返回文件描述符，失败返回-1；并且修改errno的值；		
+
+3. 读写文件；
+	read
+	ssize_t read(int fd, void *buf, size_t count);
+功能：从文件描述符fd所对应的文件中读count个字节数据到buf当中，	
+参数：
+	fd：文件描述符，用来指定所要读的文件；
+	buf：存储空间的地址，用来存储读到的数据；
+	count：大小，期望读数据字节数；
+返回值：
+	成功返回读到的字节数，如果读到文件的结束返回0；失败返回-1；
+
+		
+	write
+	ssize_t write(int fd, const void *buf, size_t count);
+功能：	将buf中的数据写count字节到fd所对应的文件中；
+
+
+4. 关闭；
+	
+

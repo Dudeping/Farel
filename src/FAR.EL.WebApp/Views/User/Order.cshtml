@@ -1,0 +1,53 @@
+﻿@model OrderModel
+@{
+    ViewBag.Title = "预约";
+}
+
+@section CssJs{
+    <link href="~/Content/common.css" rel="stylesheet" />
+    <link href="~/Content/order.css" rel="stylesheet" />
+}
+
+<div class="content">
+    <div id="box">
+    </div>
+    <div>
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-info" style="margin-top:7em;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">预约</h3>
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <input type="hidden" name="UId" value="@User.Identity.Name" />
+                        <div class="form-group">
+                            <label>选择医生</label><br />
+                            <select name="DId" class="form-control">
+                                @foreach (var item in ViewBag.DrList)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="true" name="IsChckeTmp" />是否检查体温
+                                @*@Html.CheckBoxFor(Model => Model.IsChckeTmp) 是否检查体温*@
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="true" name="IsChckeHtBt" />是否检查心跳
+                                @*@Html.CheckBoxFor(Model => Model.IsChckeHtBt) 是否检查心跳*@ 
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-info btn-block">提交</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

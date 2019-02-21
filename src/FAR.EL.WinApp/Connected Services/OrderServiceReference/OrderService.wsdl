@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OrderService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:63952/OrderService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:63952/OrderService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:63952/OrderService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/FAR.EL.Models" />
+      <xsd:import schemaLocation="http://localhost:63952/OrderService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/FAR.EL.Common" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IOrderService_Order_InputMessage">
+    <wsdl:part name="parameters" element="tns:Order" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_Order_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetLogs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogs" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetLogs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_Getasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:Getasks" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_Getasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetRep_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRep" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetRep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRepResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetPe_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPe" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetPe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_Pet_InputMessage">
+    <wsdl:part name="parameters" element="tns:Pet" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_Pet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IOrderService">
+    <wsdl:operation name="Order">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/Order" message="tns:IOrderService_Order_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/OrderResponse" message="tns:IOrderService_Order_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/GetLogs" message="tns:IOrderService_GetLogs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/GetLogsResponse" message="tns:IOrderService_GetLogs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Getasks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/Getasks" message="tns:IOrderService_Getasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/GetasksResponse" message="tns:IOrderService_Getasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRep">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/GetRep" message="tns:IOrderService_GetRep_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/GetRepResponse" message="tns:IOrderService_GetRep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/GetPe" message="tns:IOrderService_GetPe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/GetPeResponse" message="tns:IOrderService_GetPe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Pet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/Pet" message="tns:IOrderService_Pet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/PetResponse" message="tns:IOrderService_Pet_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IOrderService" type="tns:IOrderService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Order">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/Order" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogs">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/GetLogs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Getasks">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/Getasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRep">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/GetRep" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPe">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/GetPe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pet">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/Pet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderService">
+    <wsdl:port name="BasicHttpBinding_IOrderService" binding="tns:BasicHttpBinding_IOrderService">
+      <soap:address location="http://localhost:63952/OrderService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

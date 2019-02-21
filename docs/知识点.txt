@@ -1,0 +1,76 @@
+知识点：
+  1.网络编程
+  2.数据管理 数据存储分析
+  3.传感器 集成的传感器模拟模块
+  4.环境的搭建 系统运行平台 Cortex-A9
+  5.界面控制 Web App QT
+
+程序运行，
+  分内核态和用户态
+
+  用户态有代码段、数据段
+  数据段有date、bbs data存放已初始化变量；
+  bbs存放未初始化变量；
+
+字符串处理函数
+  1.计算长度：strlen
+  2.字符串拷贝：strcpy
+  3.字符串连接：strcat
+  4.字符串比较：strcmp
+  5.字符串查找：strstr
+
+  const 和指针合用时
+
+变量定义：
+  数据类型 变量名
+  数据类型指变量的类型
+
+指针的定义
+  数据类型 *指针名
+  数据类型指指针变量所指的空间的数据类型
+
+函数指针
+  返回值类型类型 (*函数名)(参数数据类型)
+
+静态库生成
+  1.编辑文件（.c）
+  2.编译所有（.c）生成.o文件 -c
+  3.生成库代码 ar crs lib(库文件名).a 源.o
+
+数据库的安装
+  设置网络 ping www.baidu.com
+  sudo apt-get install sqlite3
+  sudo apt-get install libsqlite3-dev
+
+Sqlite数据库使用
+  创建数据库 sqlite3 name.db
+  创建表 create tablename(propname proptype, ...);
+  插入数据 insert into tablename(prponame, ...) values(value, ...);
+  更新数据 update tablename set propname = value, ... where ...;
+  删除数据 delete from tablename where ...
+
+文件：
+  1.创建文件：
+    #include<sys/types.h>
+    #include<sys/stat.h>
+    #include<fcntl.h>
+    int creat(const char *pathname, mode_t mode);
+      功能：创建一个普通文件
+      参数
+	pathname：所创建文件的路径
+	model：权限
+      返回值：文件描述符
+
+  2.打开文件
+    int open(const char *pathname, int flags);
+      功能：打开文件
+      参数：
+	pathname：打开文件的路径
+	flag：打开文件方式 O_RDONLY，OWRONLY，O_RDWR
+
+    int open(const char *pathname, int flags, mode_t mode);
+      功能：打开文件，不存在则创建
+
+  3.读写文件
+
+  4.关闭

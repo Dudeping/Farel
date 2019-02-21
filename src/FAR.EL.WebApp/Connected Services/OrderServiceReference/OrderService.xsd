@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:63952/OrderService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/FAR.EL.Models" />
+  <xs:import schemaLocation="http://localhost:63952/OrderService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/FAR.EL.Common" />
+  <xs:element name="Order">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/FAR.EL.Models" minOccurs="0" name="model" nillable="true" type="q1:OrderModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/FAR.EL.Common" minOccurs="0" name="OrderResult" nillable="true" type="q2:ELResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FAR.EL.Models" minOccurs="0" name="GetLogsResult" nillable="true" type="q3:ArrayOfLogAndTaskModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getasks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="did" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetasksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/FAR.EL.Models" minOccurs="0" name="GetasksResult" nillable="true" type="q4:ArrayOfLogAndTaskModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRep">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRepResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/FAR.EL.Models" minOccurs="0" name="GetRepResult" nillable="true" type="q5:GetRepModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/FAR.EL.Models" minOccurs="0" name="GetPeResult" nillable="true" type="q6:GetPeModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Pet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/FAR.EL.Common" minOccurs="0" name="PetResult" nillable="true" type="q7:ELResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
