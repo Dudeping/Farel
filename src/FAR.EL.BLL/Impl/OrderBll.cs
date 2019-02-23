@@ -1,7 +1,5 @@
 ﻿using FAR.EL.Common;
-using FAR.EL.DALFactory;
-using FAR.EL.IBLL;
-using FAR.EL.IDAL;
+using FAR.EL.DAL;
 using FAR.EL.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FAR.EL.BLL
 {
-    public class OrderBll : IOrderBll
+    internal class OrderBll : IOrderBll
     {
         /// <summary>
         /// DbSession

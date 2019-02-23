@@ -1,7 +1,5 @@
 ﻿using FAR.EL.Common;
-using FAR.EL.DALFactory;
-using FAR.EL.IBLL;
-using FAR.EL.IDAL;
+using FAR.EL.DAL;
 using FAR.EL.Models;
 using System;
 using System.Collections.Generic;
@@ -14,7 +12,7 @@ namespace FAR.EL.BLL
     /// <summary>
     /// UserBll
     /// </summary>
-    public class UserBll : IUserBll
+    internal class UserBll : IUserBll
     {
         /// <summary>
         /// 当前 Session

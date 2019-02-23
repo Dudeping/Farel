@@ -50,10 +50,6 @@
       <Project>{96B6B023-2D39-432D-AA46-3CB6803FBB97}</Project>
       <Name>FAR.EL.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FAR.EL.IDAL\FAR.EL.IDAL.csproj">
-      <Project>{36045865-0A5B-4979-A0C9-8B7A5A3D36CA}</Project>
-      <Name>FAR.EL.IDAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FAR.EL.TDAL\FAR.EL.TDAL.csproj">
       <Project>{6CFBC46B-19DA-4C86-9A8A-20108F8C53B3}</Project>
       <Name>FAR.EL.TDAL</Name>

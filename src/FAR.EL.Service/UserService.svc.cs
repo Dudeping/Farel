@@ -5,10 +5,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using FAR.EL.BLL;
 using FAR.EL.Common;
 using FAR.EL.Models;
-using FAR.EL.IBLL;
-using FAR.EL.BLLFactory;
 
 namespace FAR.EL.Service
 {

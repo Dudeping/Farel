@@ -49,10 +49,6 @@
       <Project>{7941BED7-1C20-4972-B1D3-80B429D8C682}</Project>
       <Name>FAR.EL.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FAR.EL.IDAL\FAR.EL.IDAL.csproj">
-      <Project>{36045865-0A5B-4979-A0C9-8B7A5A3D36CA}</Project>
-      <Name>FAR.EL.IDAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FAR.EL.Models\FAR.EL.Models.csproj">
       <Project>{F0DD9524-07CE-456D-B29A-C3F30264BA5D}</Project>
       <Name>FAR.EL.Models</Name>

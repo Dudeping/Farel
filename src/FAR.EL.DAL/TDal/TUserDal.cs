@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using FAR.EL.Common;
 using FAR.EL.Models;
 
-namespace FAR.EL.TDAL
+namespace FAR.EL.DAL
 {
     /// <summary>
     /// 测试用 UserDal

@@ -1,32 +1,24 @@
-﻿using FAR.EL.BLL;
-using FAR.EL.Common;
+﻿using FAR.EL.Common;
 using FAR.EL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace FAR.EL.Service
+namespace FAR.EL.BLL
 {
     /// <summary>
-    /// Order 服务
-    /// 在 UserService.svc 上点击调试调试该服务 
+    /// IOrderBll 用于约束 OrderBll 和降低与 Service 层之间的耦合
     /// </summary>
-    public class OrderService : IOrderService
+    public interface IOrderBll
     {
-        /// <summary>
-        /// OrderBll
-        /// </summary>
-        public IOrderBll OrderBll { get; set; } = BllStaticFactory.GetOrderBll();
-
         /// <summary>
         /// 预约
         /// </summary>
         /// <param name="model">预约数据模型</param>
         /// <returns></returns>
-        public ELResult Order(OrderModel model) => OrderBll.Order(model);
+        ELResult Order(OrderModel model);
 
         /// <summary>
         /// 获取记录列表
@@ -34,15 +26,15 @@ namespace FAR.EL.Service
         /// <param name="uid">用户Id</param>
         /// <param name="logs">获取到的记录列表</param>
         /// <returns></returns>
-        public List<LogAndTaskModel> GetLogs(string uid) => OrderBll.GetLogs(uid, out List<LogAndTaskModel> logs).Success ? logs : new List<LogAndTaskModel>();
+        ELResult GetLogs(string uid, out List<LogAndTaskModel> logs);
 
         /// <summary>
         /// 获取任务列表
         /// </summary>
         /// <param name="did">医生Id</param>
-        /// <param name="reps">获取到的任务列表</param>
+        /// <param name="tasks">获取到的任务列表</param>
         /// <returns></returns>
-        public List<LogAndTaskModel> Getasks(string did) => OrderBll.Getasks(did, out List<LogAndTaskModel> logs).Success ? logs : new List<LogAndTaskModel>();
+        ELResult Getasks(string did, out List<LogAndTaskModel> tasks);
 
         /// <summary>
         /// 获取报告
@@ -50,7 +42,7 @@ namespace FAR.EL.Service
         /// <param name="rid">报告Id</param>
         /// <param name="reps">获取到的报告列表</param>
         /// <returns></returns>
-        public GetRepModel GetRep(string rid) => OrderBll.GetRep(rid, out GetRepModel rep).Success ? rep : null;
+        ELResult GetRep(string rid, out GetRepModel rep);
 
         /// <summary>
         /// 获取体检
@@ -58,13 +50,13 @@ namespace FAR.EL.Service
         /// <param name="pid">体检Id</param>
         /// <param name="pe">获取到的体检信息</param>
         /// <returns></returns>
-        public GetPeModel GetPe(string pid) => OrderBll.GetPe(pid, out GetPeModel pe).Success ? pe : null;
+        ELResult GetPe(string pid, out GetPeModel pe);
 
         /// <summary>
         /// 体检
         /// </summary>
         /// <param name="pid">体检Id</param>
         /// <returns></returns>
-        public ELResult Pet(string pid) => OrderBll.Pet(pid);
+        ELResult Pet(string pid);
     }
 }

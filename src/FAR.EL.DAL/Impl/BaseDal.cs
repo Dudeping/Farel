@@ -1,6 +1,6 @@
 ﻿using FAR.EL.Common;
 using FAR.EL.DAL.Common;
-using FAR.EL.IDAL;
+using FAR.EL.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;

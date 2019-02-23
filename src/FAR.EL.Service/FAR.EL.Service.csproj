@@ -92,17 +92,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FAR.EL.BLLFactory\FAR.EL.BLLFactory.csproj">
-      <Project>{0C6C960E-FD56-44A0-81CA-600A2B2F6FC5}</Project>
-      <Name>FAR.EL.BLLFactory</Name>
+    <ProjectReference Include="..\FAR.EL.BLL\FAR.EL.BLL.csproj">
+      <Project>{A6AB7A67-F28A-4FC6-913F-92F52AADB8C9}</Project>
+      <Name>FAR.EL.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\FAR.EL.Common\FAR.EL.Common.csproj">
       <Project>{7941BED7-1C20-4972-B1D3-80B429D8C682}</Project>
       <Name>FAR.EL.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FAR.EL.IBLL\FAR.EL.IBLL.csproj">
-      <Project>{2C7E01F5-A0A1-42D1-994F-D60EF41A7714}</Project>
-      <Name>FAR.EL.IBLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\FAR.EL.Models\FAR.EL.Models.csproj">
       <Project>{F0DD9524-07CE-456D-B29A-C3F30264BA5D}</Project>
